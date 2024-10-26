@@ -9,7 +9,7 @@ from sixgpt_proof.models.proof_response import ProofResponse
 from sixgpt_proof.wikipedia.verify_content import WikipediaSummarization
 from sixgpt_proof.sixgpt import evaluate_question, evaluate_answer, get_uniqueness_score
 
-MIN_NUMBER_OF_EXAMPLES = 50
+MIN_NUMBER_OF_EXAMPLES = 1
 
 def choose_random_example(examples: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     number_of_examples_to_choose = len(examples) // MIN_NUMBER_OF_EXAMPLES
