@@ -9,7 +9,7 @@ from sixgpt_proof.models.proof_response import ProofResponse
 from sixgpt_proof.wikipedia.verify_content import WikipediaSummarization
 from sixgpt_proof.sixgpt import evaluate_question, evaluate_answer, get_uniqueness_score
 
-MIN_NUMBER_OF_EXAMPLES = 1
+MIN_NUMBER_OF_EXAMPLES = 50
 
 def choose_random_example(examples: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     number_of_examples_to_choose = len(examples) // MIN_NUMBER_OF_EXAMPLES
@@ -78,7 +78,6 @@ class Proof:
         logging.info("Starting proof generation")
 
         # Iterate through files and calculate data validity
-        total_score = 0
 
         input_filename = os.listdir(self.config['input_dir'])[0]
         number_examples, number_sampled = self.proof(os.path.join(self.config['input_dir'], input_filename))
@@ -86,7 +85,8 @@ class Proof:
         # Calculate proof-of-contribution scores: https://docs.vana.org/vana/core-concepts/key-elements/proof-of-contribution/example-implementation
         self.proof_response.ownership = 0.0 
         # Calculate overall score and validity
-        self.proof_response.score = (0.8 * self.proof_response.quality + 0.2 * self.proof_response.uniqueness) * self.proof_response.authenticity
+        total_score = (0.8 * self.proof_response.quality + 0.2 * self.proof_response.uniqueness) * self.proof_response.authenticity
+        self.proof_response.score = min(total_score * number_examples / 10_000, 1)
         self.proof_response.valid = self.proof_response.score > 0.1
 
         # Additional (public) properties to include in the proof about the data

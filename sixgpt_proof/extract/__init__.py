@@ -56,7 +56,6 @@ def extract_data(zip_file_path: str):
         If extract contraints are not respected
     """
     required_files = ["examples.data"]
-    logging.info(zip_file_path)
     # Load data from zip file and validate that it contains the required files
     try:
         with zipfile.ZipFile(zip_file_path, "r") as zip_ref:
