@@ -6,9 +6,9 @@ import traceback
 import zipfile
 from typing import Dict, Any
 
-from sixgpt_proof.proof import Proof
+from my_proof.proof import Proof
 
-INPUT_DIR, OUTPUT_DIR, SEALED_DIR = '/input', '/output', '/sealed'
+INPUT_DIR, OUTPUT_DIR = '/input', '/output'
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
@@ -16,8 +16,7 @@ logging.basicConfig(level=logging.INFO, format='%(message)s')
 def load_config() -> Dict[str, Any]:
     """Load proof configuration from environment variables."""
     config = {
-        'dlp_id': 202,  # Set your own DLP ID here
-        'use_sealing': os.path.isdir(SEALED_DIR),
+        'dlp_id': 14,  # Set your own DLP ID here
         'input_dir': INPUT_DIR,
         "sixgpt_api_key": os.environ.get("SIXGPT_API_KEY", None),
         "miner_address": os.environ.get("MINER_ADDRESS", None),

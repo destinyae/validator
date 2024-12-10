@@ -4,10 +4,10 @@ from typing import Dict, Any, List
 
 import random 
 
-from sixgpt_proof.extract import extract_data, validate_json_structure
-from sixgpt_proof.models.proof_response import ProofResponse
-from sixgpt_proof.wikipedia.verify_content import WikipediaSummarization
-from sixgpt_proof.sixgpt import evaluate_question, evaluate_answer, get_uniqueness_score
+from my_proof.extract import extract_data, validate_json_structure
+from my_proof.models.proof_response import ProofResponse
+from my_proof.wikipedia.verify_content import WikipediaSummarization
+from my_proof.sixgpt import evaluate_question, evaluate_answer, get_uniqueness_score
 
 MIN_NUMBER_OF_EXAMPLES = 50
 
