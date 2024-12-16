@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.INFO, format='%(message)s')
 def load_config() -> Dict[str, Any]:
     """Load proof configuration from environment variables."""
     config = {
-        'dlp_id': os.environ.get("DLP_ID", None),  # Set your own DLP ID here
+        'dlp_id': os.environ.get("DLP_ID", 7),  # Set your own DLP ID here
         'input_dir': INPUT_DIR,
         "sixgpt_api_key": os.environ.get("SIXGPT_API_KEY", None),
         "miner_address": os.environ.get("MINER_ADDRESS", None),
