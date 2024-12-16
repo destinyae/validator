@@ -18,7 +18,7 @@ This template provides a basic structure for building proof tasks that:
   "authenticity": 1.0, // A score between 0 and 1 to rate if the file has been tampered with
   "ownership": 1.0, // A score between 0 and 1 to verify the ownership of the file
   "quality": 0.6024096385542169, // A score between 0 and 1 to show the quality of the file
-  "uniqueness": 0, // A score between 0 and 1 to show unique the file is, compared to others in the DLP
+  "uniqueness": 0, // A score between 0 and 1 to show how unique the file is, compared to others in the DLP
   "attributes": { // Custom attributes that can be added to the proof to provide extra context about the encrypted file
     "total_score": 0.5,
     "score_threshold": 0.83,
@@ -27,7 +27,7 @@ This template provides a basic structure for building proof tasks that:
 }
 ```
 
-The project is designed to work with [Gramine](https://gramine.readthedocs.io/en/latest/), a lightweight library OS that enables running unmodified applications in secure enclaves, such as Intel SGX (Software Guard Extensions). This allows the code to run in a trusted execution environment, ensuring confidentiality and integrity of the computation.
+The project is designed to work with [Gramine](https://gramine.readthedocs.io/en/latest/), a lightweight library OS that enables running unmodified applications in secure enclaves, such as Intel SGX (Software Guard Extensions). This allows the code to run in a trusted execution environment, ensuring the confidentiality and integrity of the computation.
 
 ## Project Structure
 
@@ -78,7 +78,7 @@ my-proof
 
 This template includes a GitHub Actions workflow that automatically:
 
-1. Builds a Docker image with your code
+1. Build a Docker image with your code
 2. Creates a Gramine-shielded container (GSC) image
 3. Publishes the GSC image as a GitHub release
 
